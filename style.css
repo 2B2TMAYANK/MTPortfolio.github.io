@@ -1,0 +1,439 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.banner .slider .item img{
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+}
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 7em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+.banner .content .author{
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+.banner .content h2{
+    font-size: 3em;
+}
+.banner .content .model{
+    background-image: url(image/model.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+@media screen and (max-width: 1023px) {
+    .banner .slider{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .banner .content h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+    .banner .content .author{
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .banner .slider{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
+    }
+    .banner .content h1{
+        font-size: 5em;
+    }
+}
+
+/* === NAVIGATION BAR === */
+.navbar {
+    position: sticky;
+    top: 0%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li {
+    margin: 0 20px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'poppins';
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #00ffff;
+  }
+  
+  /* Smooth Scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  section {
+    min-height: 100vh;
+    padding: 50px;
+    color: white;
+    font-size: 2rem;
+  }
+  
+
+  /* ==== ABOUT SECTION STYLING ==== */
+#about {
+    background: #2d2d2d; /* Dark background */
+    color: #fff;          /* White text */
+    padding: 50px 20px;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+  }
+  
+  /* Flex wrapper to center and limit width */
+  .about-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Main intro text */
+  .about-text h1 {
+    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Highlighted name */
+  .about-text .bold-name {
+    font-weight: bold;
+    color: #00ffff;
+  }
+  
+  /* Paragraphs */
+  .about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+/* Container spacing between intro and language icons */
+.about-container p {
+    margin-bottom: 40px; 
+  }
+  
+  /* Skills section */
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .skills img {
+    width: 200px;
+    height: 170px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+  }
+  
+  .skills img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+  }
+  
+
+  #projects {
+    background-color: #ccc8c8;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    color: #000000; 
+    margin-bottom: 40px;
+    font-family: 'poppins';
+  }
+  
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: left;
+    font-family: 'poppins';
+    color: #000;
+  }
+  
+  .project-card {
+    margin-top: 159px;
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: #5d5858;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 30, 47, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+  
+  .plus-icon {
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .project-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #1e1e2f;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  .project-link:hover {
+    color: #4a90e2;
+  }
+  
+
+  /* Contact Section Styling */
+.section-dark {
+    background-color: #1e1e2f; /* Dark theme like 'About Me' */
+    color: #ffffff;
+    padding: 60px 20px;
+  }
+  
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between each field */
+    margin-top: 30px;
+  }
+  
+  #contactForm input,
+  #contactForm textarea {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffffff;
+    color: #1e1e2f;
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+  }
+  
+  #contactForm textarea {
+    height: 120px;
+  }
+  
+  #contactForm button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #4fc3f7;
+    color: #1e1e2f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #contactForm button:hover {
+    background-color: #039be5;
+  }
+  
+  /* Popup Styling */
+  .popup {
+    display: none;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .popup.show {
+    display: block;
+  }
+  
+  /* Social media icons at bottom of contact section */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+  }
+  
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #00adb5; /* Teal or choose your theme accent color */
+    transform: scale(1.2);
+  }
+  
